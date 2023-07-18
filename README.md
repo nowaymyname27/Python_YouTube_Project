@@ -1,38 +1,44 @@
-```markdown
 # Python YouTube Downloader
 
-This is a simple Python script that uses the `pytube` library to download a YouTube video. Given a YouTube link, it will download the highest resolution stream available.
+This Python project lets you download YouTube videos or audios to your local system using a provided link.
+
+## Features
+
+- Download a YouTube video in the highest available resolution.
+- Download just the audio of a YouTube video.
+- User friendly: simply enter a YouTube link and choose whether to download the video or audio.
+
+## Usage
+
+1. Run the python file in a terminal: `python main.py`
+2. When prompted, enter the YouTube link for the video you want to download.
+3. Choose whether you want to download the video or just the audio by typing either 'video' or 'audio' when prompted.
+
+## Example
+
+```bash
+Please enter the YouTube link: https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Title: Rick Astley - Never Gonna Give You Up (Video)
+Do you want to download the video or just the audio? Enter 'video' or 'audio': video
+Your video has downloaded!
+```
 
 ## Dependencies
 
-This script requires Python 3 and the `pytube` library. You can install `pytube` with pip:
+This project uses the [pytube](https://pypi.org/project/pytube/) Python library to interact with YouTube videos. You can install it using pip:
 
 ```bash
 pip install pytube
 ```
 
-## Usage
+## Issues
 
-This script takes a YouTube link as a command-line argument and downloads the video to a specific path on your system.
-
-To use the script, you can run it from the command line as follows:
+If you encounter the error `get_transform_object: could not find match for var for={(.*?)};`, try updating pytube to the latest version:
 
 ```bash
-python your_script_name.py https://www.youtube.com/watch?v=dQw4w9WgXcQ
+pip install --upgrade pytube
 ```
 
-Replace `https://www.youtube.com/watch?v=dQw4w9WgXcQ` with the link of the YouTube video you want to download. 
+## Disclaimer
 
-The downloaded video will be stored in the following path: `/Users/Galock/Desktop/CS_Summer/Python_YouTube_Project/Downloaded-Videos`.
-
-## What the Script Does
-
-After receiving the YouTube link as an argument, the script uses the `pytube` library to create a `YouTube` object.
-
-It then prints out the title of the video and the number of views it has.
-
-Finally, it downloads the highest resolution stream available for that video.
-
-Please note, the download path is hard-coded, you may need to adjust it based on your system configuration.
-```
-Replace `your_script_name.py` with the name of your script file. Also, adjust any other details according to your needs.
+Please note that YouTube's Terms of Service generally prohibit the downloading of videos, and doing so may violate those terms. Use this code responsibly and in compliance with all applicable laws and regulations.
