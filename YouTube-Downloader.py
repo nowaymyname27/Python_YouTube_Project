@@ -1,10 +1,8 @@
 # Import the YouTube module from the pytube library to interact with YouTube videos
 from pytube import YouTube
-# Import the argv function from the sys library to handle command line arguments
-from sys import argv
 
-# Get the first command line argument which should be the YouTube link
-youtube_link = argv[1]
+# Get the YouTube link from the user
+youtube_link = input("Please enter the YouTube link: ")
 
 # Create a YouTube object for the video corresponding to the given link
 youtube_video = YouTube(youtube_link)
@@ -17,5 +15,5 @@ print('Views: ', youtube_video.views)
 highest_res_stream = youtube_video.streams.get_highest_resolution()
 
 # Download the video and save it to the specified path
-download_path = "/Users/Galock/Desktop/CS_Summer/Python_YouTube_Project/Downloaded-Videos"
+download_path = "/Users/Galock/Desktop/CS_Summer/Downloaded-Videos"
 highest_res_stream.download(download_path)
