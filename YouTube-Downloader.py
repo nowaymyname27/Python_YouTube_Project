@@ -11,17 +11,26 @@ try:
     # Print the video's title
     print('Title: ', youtube_video.title)
 
-    # Get the video stream with the highest resolution
-    highest_res_stream = youtube_video.streams.get_highest_resolution()
+    # Ask the user if they want to download the video or just the audio
+    download_choice = input("Do you want to download the video or just the audio? Enter 'video' or 'audio': ")
 
-    # Download the video and save it to the specified path
+    # Based on the user's choice, get the appropriate stream
+    if download_choice.lower() == 'video':
+        chosen_stream = youtube_video.streams.filter(progressive=True).get_highest_resolution()
+    elif download_choice.lower() == 'audio':
+        chosen_stream = youtube_video.streams.filter(only_audio=True).first()
+    else:
+        print("Invalid choice, please enter either 'video' or 'audio'.")
+        exit()
+
+    # Download the chosen stream and save it to the specified path
     download_path = "/Users/Galock/Desktop/CS_Summer/Downloaded-Videos"
-    highest_res_stream.download(download_path)
+    chosen_stream.download(download_path)
 
     # Print a success message
-    print("Your video has downloaded!")
+    print("Your {} has downloaded!".format(download_choice))
 
 except Exception as e:
     # If an error occurred, print an error message
-    print("The video failed to download... :(")
+    print("The {} failed to download... :(".format(download_choice))
     print("Error details: ", str(e))
