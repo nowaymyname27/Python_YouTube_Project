@@ -1,5 +1,7 @@
 import subprocess
 import sys
+from tkinter import filedialog
+from tkinter import Tk
 
 def update_pytube():
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', 'pytube'])
@@ -31,8 +33,20 @@ try:
         print("Invalid choice, please enter either 'video' or 'audio'.")
         exit()
 
+    try:
+        # Create a Tk window and immediately withdraw it to avoid an extra, empty window
+        root = Tk()
+        root.withdraw()
+
+        # Open a file chooser dialog to select the download path and get the chosen path
+        download_path = filedialog.askdirectory()
+
+    except Exception as e:
+        print("An error occurred while trying to select a download path.")
+        print("Error details: ", str(e))
+        exit()
+        
     # Download the chosen stream and save it to the specified path
-    download_path = "/Users/Galock/Desktop/CS_Summer/Downloaded-Videos"
     chosen_stream.download(download_path)
 
     # Print a success message
