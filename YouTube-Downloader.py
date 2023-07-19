@@ -1,3 +1,11 @@
+import subprocess
+import sys
+
+def update_pytube():
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '--upgrade', 'pytube'])
+
+update_pytube()
+
 # Import the YouTube module from the pytube library to interact with YouTube videos
 from pytube import YouTube
 
