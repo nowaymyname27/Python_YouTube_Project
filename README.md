@@ -1,44 +1,30 @@
 # Python YouTube Downloader
 
-This Python project lets you download YouTube videos or audios to your local system using a provided link.
+This is a simple script to download videos or audio from YouTube.
 
 ## Features
 
-- Download a YouTube video in the highest available resolution.
-- Download just the audio of a YouTube video.
-- User friendly: simply enter a YouTube link and choose whether to download the video or audio.
+1. Downloads video or audio-only from a YouTube link provided by the user.
+2. Automatically updates the required library `pytube`.
+3. User can choose the download path via a GUI-based folder picker.
 
 ## Usage
 
-1. Run the python file in a terminal: `python main.py`
-2. When prompted, enter the YouTube link for the video you want to download.
-3. Choose whether you want to download the video or just the audio by typing either 'video' or 'audio' when prompted.
+Run the `YouTube-Downloader.py` script. You will be prompted to:
 
-## Example
+1. Enter a YouTube link.
+2. Choose whether to download the video or just the audio.
 
-```bash
-Please enter the YouTube link: https://www.youtube.com/watch?v=dQw4w9WgXcQ
-Title: Rick Astley - Never Gonna Give You Up (Video)
-Do you want to download the video or just the audio? Enter 'video' or 'audio': video
-Your video has downloaded!
-```
+Next, a dialog box will open, allowing you to choose a download location. After you've chosen the download path, the selected YouTube video or audio will begin to download.
 
-## Dependencies
+Please note that you need to have `tkinter` and `pytube` installed for the script to work properly. These should be automatically updated and handled by the script.
 
-This project uses the [pytube](https://pypi.org/project/pytube/) Python library to interact with YouTube videos. You can install it using pip:
+## Possible Errors
 
-```bash
-pip install pytube
-```
+If an error occurs, an error message will be displayed, providing the details of what went wrong. If the error occurs during the download process, it will notify you that the download failed. If the error occurs while selecting the download path, it will inform you that an error occurred during the selection process.
 
-## Issues
+## Creating Executable
 
-If you encounter the error `get_transform_object: could not find match for var for={(.*?)};`, try updating pytube to the latest version:
+For ease of use, consider packaging this script into an executable file using tools like PyInstaller. This way, users won't need to have Python or the required packages installed on their system.
 
-```bash
-pip install --upgrade pytube
-```
-
-## Disclaimer
-
-Please note that YouTube's Terms of Service generally prohibit the downloading of videos, and doing so may violate those terms. Use this code responsibly and in compliance with all applicable laws and regulations.
+Refer to the Python packaging documentation or the PyInstaller documentation for instructions on how to do this. Be sure to thoroughly test your packaged application to ensure everything works as expected.
